@@ -1,0 +1,38 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  text-align: center;
+
+  &__wrapper {
+    max-width: 430px;
+    width: 100%;
+  }
+
+  &__top {
+    margin-bottom: 50px;
+    &-title {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    &-desc {
+      font-size: 18px;
+      line-height: 0.86;
+      opacity: 0.5;
+    }
+  }
+
+  &__register-link {
+    color: #adadad;
+  }
+
+  .button {
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 100%;
+    font-weight: 500;
+    height: 46px;
+  }
+}
