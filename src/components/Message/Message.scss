@@ -1,0 +1,101 @@
+@import "~styles/variables.scss";
+
+.message {
+  $self: &;
+
+  display: flex;
+  max-width: 440px;
+  margin-bottom: 15px;
+
+  &__content {
+    margin-right: 10px;
+  }
+
+  &__avatar {
+    margin-right: 14px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__avatar-image {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+  }
+
+  &__date {
+    font-size: 12px;
+    opacity: 0.4;
+  }
+
+  &__bubble {
+    background: $blue;
+    box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.196733);
+    border-radius: 12px 12px 12px 0;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    color: $white;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  &__checked {
+    display: flex;
+    align-items: flex-end;
+
+    &_icon {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__attachments {
+    display: flex;
+    margin-bottom: 10px;
+
+    &_img {
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &--isMe {
+    display: flex;
+    margin-left: auto;
+    flex-direction: row-reverse;
+
+    #{$self}__content {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+    #{$self}__bubble {
+      background: $white;
+      border: 1px solid #ececec;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.0220444);
+      border-radius: 12px 12px 0px 12px;
+      #{$self}__text {
+        color: $black;
+      }
+    }
+    #{$self}__avatar {
+      margin-right: 0;
+      margin-left: 14px;
+    }
+    #{$self}__date {
+      display: block;
+      text-align: end;
+    }
+    #{$self}__attachments {
+      justify-content: flex-end;
+    }
+  }
+}

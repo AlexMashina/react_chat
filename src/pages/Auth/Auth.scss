@@ -28,6 +28,23 @@
     color: #adadad;
   }
 
+  &__success-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+  }
+
+  &__success-title {
+    margin-bottom: 10px;
+  }
+
+  &__success-info {
+    color: #adadad;
+    margin-top: 0;
+    line-height: 1.5;
+  }
+
   .button {
     font-size: 14px;
     text-transform: uppercase;
