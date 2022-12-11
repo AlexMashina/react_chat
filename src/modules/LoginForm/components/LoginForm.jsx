@@ -5,12 +5,10 @@ import { Link } from "react-router-dom";
 
 import { Button, Block } from "../../../components";
 
-class LoginForm extends React.Component {
-  onFinish = (values) => {
-    console.log("Ввведенные значения формы ", values);
-  };
+const LoginForm = (props) => {
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
+  props;
 
-  render() {
     return (
       <div>
         <div className="auth__top">
@@ -22,13 +20,10 @@ class LoginForm extends React.Component {
             name="normal_login"
             className="login-form"
             initialValues={{ remember: true }}
-            onFinish={this.onFinish}
+            onSubmit={handleSubmit}
           >
             <Form.Item
               name="username"
-              rules={[
-                { required: true, message: "Please input your Username!" },
-              ]}
             >
               <Input
                 prefix={<UserOutlined className="site-form-item-icon" />}
@@ -38,18 +33,27 @@ class LoginForm extends React.Component {
             </Form.Item>
             <Form.Item
               name="password"
-              rules={[
-                { required: true, message: "Please input your Password!" },
-              ]}
+              validateStatus={
+                !touched.password ? "" : errors.password ? "error" : "success"
+              }
+              hasFeedback
+              help={!touched.password ? "" : errors.password}
             >
               <Input
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 size="large"
                 placeholder="Password"
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </Form.Item>
-            <Form.Item className="button_wrp">
+            <Form.Item 
+              className="button_wrp"               
+              validateStatus={!touched.email ? "" : errors.email ? "error" : "success"}
+              hasFeedback
+              help={!touched.email ? "" : errors.email}
+            >
               <Button type="primary" htmlType="submit" className="button">
                 Войти в аккаунт
               </Button>
@@ -62,6 +66,6 @@ class LoginForm extends React.Component {
       </div>
     );
   }
-}
+
 
 export default LoginForm;
